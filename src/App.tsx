@@ -17,10 +17,9 @@ import {
 
 export default function App() {
   const [copiedLink, setCopiedLink] = useState<string | null>(null);
-  const [showShareModal, setShowShareModal] = useState(false);
   const [showQrModal, setShowQrModal] = useState<string | null>(null);
 
-  const websiteUrl = 'https://chix9ja.com?ref=BHI';
+  const websiteUrl = 'https://chix9ja.online?ref=BHI';
   const telegramUrl = 'https://t.me/chix9jacom';
   const telegramHandle = '@chix9jacom';
   const refCode = 'BHI';
@@ -37,12 +36,11 @@ export default function App() {
     if (navigator.share) {
       try {
         await navigator.share({
-          title: 'Chix9ja Portal',
-          text: 'Official Chix9ja Website and Telegram Community links.',
+          title: 'CHIX9JA | Official Links',
+          text: 'Nigeria\'s Premium Portal - Official Website and Telegram Community.',
           url: window.location.href,
         });
       } catch {
-        // Fallback copy
         copyToClipboard(window.location.href, 'Portal');
       }
     } else {
@@ -51,223 +49,206 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col justify-between items-center px-4 py-8 sm:py-12 relative overflow-hidden">
-      {/* Background Decorators */}
-      <div className="absolute -top-32 -left-32 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute -bottom-32 -right-32 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-sky-500/5 rounded-full blur-3xl pointer-events-none" />
+    <div className="min-h-screen w-full bg-[#0f172a] text-slate-100 flex flex-col justify-between items-center px-4 py-8 sm:py-12 relative overflow-x-hidden select-none bg-[radial-gradient(circle_at_top_right,#1e293b,#0f172a)]">
+      {/* Top Ambient Glow from Sleek Interface Theme */}
+      <div className="absolute w-[420px] h-[420px] rounded-full bg-[radial-gradient(circle,rgba(251,146,60,0.14)_0%,transparent_70%)] top-4 left-1/2 -translate-x-1/2 z-0 pointer-events-none" />
+      <div className="absolute w-[360px] h-[360px] rounded-full bg-[radial-gradient(circle,rgba(0,136,204,0.1)_0%,transparent_70%)] bottom-10 right-[-10%] z-0 pointer-events-none" />
 
-      {/* Main Container */}
-      <main className="w-full max-w-md mx-auto flex-1 flex flex-col justify-center items-center relative z-10 my-auto">
-        {/* Profile / Header Section */}
+      {/* Header Logo */}
+      <motion.header
+        initial={{ opacity: 0, y: -15 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.4 }}
+        className="relative z-10 text-center mb-6 pt-2"
+      >
+        <div className="text-3xl sm:text-4xl font-extrabold tracking-tight bg-gradient-to-r from-[#fb923c] to-[#f97316] bg-clip-text text-transparent drop-shadow-sm">
+          CHIX9JA
+        </div>
+        <div className="flex items-center justify-center gap-1.5 mt-1 text-xs text-slate-400 font-medium tracking-wide uppercase">
+          <ShieldCheck className="w-3.5 h-3.5 text-[#fb923c]" />
+          <span>Verified Official Gateway</span>
+        </div>
+      </motion.header>
+
+      {/* Main Sleek Card Content */}
+      <main className="w-full max-w-[540px] mx-auto relative z-10 my-auto">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="text-center w-full mb-8"
+          initial={{ opacity: 0, scale: 0.96 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.45 }}
+          className="bg-[rgba(30,41,59,0.7)] backdrop-blur-xl border border-white/10 p-6 sm:p-9 rounded-3xl shadow-2xl shadow-black/40 flex flex-col items-center text-center"
         >
-          {/* Avatar / Brand Icon */}
-          <div className="relative inline-block mb-4">
-            <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl bg-gradient-to-br from-amber-400 via-emerald-500 to-sky-500 p-[3px] shadow-xl shadow-amber-500/10">
-              <div className="w-full h-full bg-slate-900 rounded-[13px] flex items-center justify-center relative overflow-hidden group">
-                <span className="text-4xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-amber-400 via-emerald-400 to-sky-400 bg-clip-text text-transparent">
-                  C9
-                </span>
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent" />
-              </div>
-            </div>
-            <div
-              className="absolute -bottom-1 -right-1 bg-emerald-500 text-slate-950 p-1.5 rounded-full shadow-lg border-2 border-slate-950"
-              title="Verified Official Account"
-            >
-              <ShieldCheck className="w-4 h-4 stroke-[2.5]" />
-            </div>
-          </div>
-
-          {/* Title and Subtitle */}
-          <div className="flex items-center justify-center gap-2 mb-1">
-            <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-white">
-              Chix9ja
+          {/* Card Header & Tagline */}
+          <div className="mb-7">
+            <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-white mb-2.5">
+              Nigeria&apos;s Premium Portal
             </h1>
-            <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
-              Official
-            </span>
-          </div>
-          <p className="text-slate-400 text-sm sm:text-base max-w-xs mx-auto leading-relaxed">
-            Welcome! Select a destination below to visit our official website or join the Telegram community.
-          </p>
+            <p className="text-slate-400 text-sm sm:text-base leading-relaxed max-w-md mx-auto">
+              Join our fast-growing community today. Access exclusive rewards, deals, and daily updates.
+            </p>
 
-          {/* Referral Badge */}
-          <div className="mt-3 inline-flex items-center gap-1.5 text-xs text-amber-300/90 bg-amber-500/10 px-3 py-1 rounded-full border border-amber-500/20">
-            <Sparkles className="w-3.5 h-3.5 text-amber-400" />
-            <span>Ref Code Active: <strong className="font-bold text-amber-300">{refCode}</strong></span>
-          </div>
-        </motion.div>
-
-        {/* Action Buttons Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 25 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.15 }}
-          className="w-full space-y-4"
-        >
-          {/* Button 1: Website with ref=BHI */}
-          <div className="group relative">
-            <a
-              href={websiteUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full min-h-[64px] p-4 rounded-2xl bg-gradient-to-r from-amber-500 to-emerald-500 text-slate-950 font-bold shadow-lg shadow-amber-500/15 hover:shadow-amber-500/25 flex items-center justify-between gap-3 transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:ring-offset-2 focus:ring-offset-slate-950"
-            >
-              <div className="flex items-center gap-3.5 min-w-0">
-                <div className="w-11 h-11 rounded-xl bg-slate-950/20 backdrop-blur-sm flex items-center justify-center text-slate-950 flex-shrink-0">
-                  <Globe className="w-6 h-6 stroke-[2.25]" />
-                </div>
-                <div className="text-left min-w-0">
-                  <div className="text-base sm:text-lg font-bold leading-tight flex items-center gap-1.5 text-slate-950">
-                    <span className="truncate">Visit Chix9ja Website</span>
-                  </div>
-                  <div className="text-xs font-semibold text-slate-950/80 truncate mt-0.5">
-                    chix9ja.com <span className="opacity-90 font-mono bg-slate-950/15 px-1.5 py-0.5 rounded text-[11px] ml-1">?ref={refCode}</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-1 flex-shrink-0 text-slate-950">
-                <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </div>
-            </a>
-
-            {/* Sub-actions (Copy / QR) */}
-            <div className="flex items-center justify-end gap-2 mt-1.5 px-1 text-xs text-slate-400">
-              <button
-                type="button"
-                onClick={() => copyToClipboard(websiteUrl, 'Website Link')}
-                className="inline-flex items-center gap-1 py-1 px-2 rounded-lg hover:bg-slate-900 text-slate-400 hover:text-slate-200 transition-colors"
-                title="Copy website URL"
-              >
-                {copiedLink === 'Website Link' ? (
-                  <>
-                    <Check className="w-3.5 h-3.5 text-emerald-400" />
-                    <span className="text-emerald-400 font-medium">Copied!</span>
-                  </>
-                ) : (
-                  <>
-                    <Copy className="w-3.5 h-3.5" />
-                    <span>Copy Link</span>
-                  </>
-                )}
-              </button>
-              <span className="text-slate-700">•</span>
-              <button
-                type="button"
-                onClick={() => setShowQrModal(websiteUrl)}
-                className="inline-flex items-center gap-1 py-1 px-2 rounded-lg hover:bg-slate-900 text-slate-400 hover:text-slate-200 transition-colors"
-                title="Show QR Code"
-              >
-                <QrCode className="w-3.5 h-3.5" />
-                <span>QR Code</span>
-              </button>
+            {/* Referral badge */}
+            <div className="mt-3 inline-flex items-center gap-1.5 text-xs text-amber-200/90 bg-[#fb923c]/15 px-3 py-1 rounded-full border border-[#fb923c]/30 font-medium">
+              <Sparkles className="w-3.5 h-3.5 text-[#fb923c]" />
+              <span>Referral Applied: <strong className="font-bold text-amber-300 tracking-wide font-mono">{refCode}</strong></span>
             </div>
           </div>
 
-          {/* Button 2: Telegram Channel */}
-          <div className="group relative">
-            <a
-              href={telegramUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full min-h-[64px] p-4 rounded-2xl bg-slate-900 border border-slate-800 hover:border-sky-500/50 text-white font-bold shadow-lg shadow-sky-500/5 hover:shadow-sky-500/10 flex items-center justify-between gap-3 transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:ring-offset-2 focus:ring-offset-slate-950"
-            >
-              <div className="flex items-center gap-3.5 min-w-0">
-                <div className="w-11 h-11 rounded-xl bg-sky-500/15 border border-sky-500/30 flex items-center justify-center text-sky-400 flex-shrink-0">
-                  <Send className="w-5 h-5 stroke-[2.25] -translate-x-0.5 translate-y-0.5" />
-                </div>
-                <div className="text-left min-w-0">
-                  <div className="text-base sm:text-lg font-bold leading-tight flex items-center gap-1.5 text-white">
-                    <span className="truncate">Telegram Channel</span>
-                  </div>
-                  <div className="text-xs font-semibold text-sky-400 truncate mt-0.5 font-mono">
-                    {telegramHandle}
-                  </div>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-1 flex-shrink-0 text-slate-400 group-hover:text-sky-400 transition-colors">
-                <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </div>
-            </a>
-
-            {/* Sub-actions (Copy / QR) */}
-            <div className="flex items-center justify-end gap-2 mt-1.5 px-1 text-xs text-slate-400">
-              <button
-                type="button"
-                onClick={() => copyToClipboard(telegramUrl, 'Telegram Handle')}
-                className="inline-flex items-center gap-1 py-1 px-2 rounded-lg hover:bg-slate-900 text-slate-400 hover:text-slate-200 transition-colors"
-                title="Copy Telegram link"
+          {/* Button Container */}
+          <div className="w-full space-y-4">
+            {/* Button 1: chix9ja.online?ref=BHI (Brand Primary: #fb923c) */}
+            <div className="group relative w-full">
+              <a
+                href={websiteUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full py-4 px-5 rounded-2xl bg-[#fb923c] hover:bg-[#f97316] text-white font-bold shadow-lg shadow-orange-500/20 hover:shadow-orange-500/30 flex items-center justify-between gap-3 transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 border border-white/15 focus:outline-none focus:ring-2 focus:ring-[#fb923c] focus:ring-offset-2 focus:ring-offset-slate-900"
               >
-                {copiedLink === 'Telegram Handle' ? (
-                  <>
-                    <Check className="w-3.5 h-3.5 text-emerald-400" />
-                    <span className="text-emerald-400 font-medium">Copied!</span>
-                  </>
-                ) : (
-                  <>
-                    <Copy className="w-3.5 h-3.5" />
-                    <span>Copy Handle</span>
-                  </>
-                )}
-              </button>
-              <span className="text-slate-700">•</span>
-              <button
-                type="button"
-                onClick={() => setShowQrModal(telegramUrl)}
-                className="inline-flex items-center gap-1 py-1 px-2 rounded-lg hover:bg-slate-900 text-slate-400 hover:text-slate-200 transition-colors"
-                title="Show QR Code"
+                <div className="flex items-center gap-3.5 min-w-0">
+                  <div className="w-11 h-11 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center text-white flex-shrink-0 shadow-inner">
+                    <Globe className="w-6 h-6 stroke-[2.25]" />
+                  </div>
+                  <div className="text-left min-w-0">
+                    <div className="text-base sm:text-lg font-bold leading-tight text-white">
+                      Visit Official Website
+                    </div>
+                    <div className="text-xs font-medium text-white/85 truncate mt-0.5">
+                      chix9ja.online <span className="opacity-90 font-mono bg-black/20 px-1.5 py-0.5 rounded text-[11px] ml-1">?ref={refCode}</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-1 flex-shrink-0 text-white">
+                  <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </div>
+              </a>
+
+              {/* Action buttons under primary link (Copy & QR) */}
+              <div className="flex items-center justify-end gap-2 mt-1.5 px-1 text-xs text-slate-400">
+                <button
+                  type="button"
+                  onClick={() => copyToClipboard(websiteUrl, 'Website Link')}
+                  className="inline-flex items-center gap-1 py-1 px-2 rounded-lg hover:bg-slate-800/80 text-slate-400 hover:text-slate-200 transition-colors"
+                  title="Copy website link"
+                >
+                  {copiedLink === 'Website Link' ? (
+                    <>
+                      <Check className="w-3.5 h-3.5 text-emerald-400" />
+                      <span className="text-emerald-400 font-medium">Copied!</span>
+                    </>
+                  ) : (
+                    <>
+                      <Copy className="w-3.5 h-3.5" />
+                      <span>Copy Link</span>
+                    </>
+                  )}
+                </button>
+                <span className="text-slate-700">•</span>
+                <button
+                  type="button"
+                  onClick={() => setShowQrModal(websiteUrl)}
+                  className="inline-flex items-center gap-1 py-1 px-2 rounded-lg hover:bg-slate-800/80 text-slate-400 hover:text-slate-200 transition-colors"
+                  title="Show QR Code"
+                >
+                  <QrCode className="w-3.5 h-3.5" />
+                  <span>QR Code</span>
+                </button>
+              </div>
+            </div>
+
+            {/* Button 2: Telegram Channel (Brand Secondary: #0088cc) */}
+            <div className="group relative w-full">
+              <a
+                href={telegramUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full py-4 px-5 rounded-2xl bg-[#0088cc] hover:bg-[#0077b5] text-white font-bold shadow-lg shadow-sky-500/20 hover:shadow-sky-500/30 flex items-center justify-between gap-3 transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 border border-white/15 focus:outline-none focus:ring-2 focus:ring-[#0088cc] focus:ring-offset-2 focus:ring-offset-slate-900"
               >
-                <QrCode className="w-3.5 h-3.5" />
-                <span>QR Code</span>
-              </button>
+                <div className="flex items-center gap-3.5 min-w-0">
+                  <div className="w-11 h-11 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center text-white flex-shrink-0 shadow-inner">
+                    <Send className="w-5 h-5 stroke-[2.25] -translate-x-0.5 translate-y-0.5" />
+                  </div>
+                  <div className="text-left min-w-0">
+                    <div className="text-base sm:text-lg font-bold leading-tight text-white">
+                      Join Telegram Channel
+                    </div>
+                    <div className="text-xs font-medium text-white/85 truncate mt-0.5 font-mono">
+                      Connect with {telegramHandle}
+                    </div>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-1 flex-shrink-0 text-white">
+                  <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </div>
+              </a>
+
+              {/* Action buttons under telegram link */}
+              <div className="flex items-center justify-end gap-2 mt-1.5 px-1 text-xs text-slate-400">
+                <button
+                  type="button"
+                  onClick={() => copyToClipboard(telegramUrl, 'Telegram Link')}
+                  className="inline-flex items-center gap-1 py-1 px-2 rounded-lg hover:bg-slate-800/80 text-slate-400 hover:text-slate-200 transition-colors"
+                  title="Copy Telegram link"
+                >
+                  {copiedLink === 'Telegram Link' ? (
+                    <>
+                      <Check className="w-3.5 h-3.5 text-emerald-400" />
+                      <span className="text-emerald-400 font-medium">Copied!</span>
+                    </>
+                  ) : (
+                    <>
+                      <Copy className="w-3.5 h-3.5" />
+                      <span>Copy Link</span>
+                    </>
+                  )}
+                </button>
+                <span className="text-slate-700">•</span>
+                <button
+                  type="button"
+                  onClick={() => setShowQrModal(telegramUrl)}
+                  className="inline-flex items-center gap-1 py-1 px-2 rounded-lg hover:bg-slate-800/80 text-slate-400 hover:text-slate-200 transition-colors"
+                  title="Show QR Code"
+                >
+                  <QrCode className="w-3.5 h-3.5" />
+                  <span>QR Code</span>
+                </button>
+              </div>
             </div>
           </div>
-        </motion.div>
 
-        {/* Quick Share & Information bar */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          className="w-full mt-8 pt-6 border-t border-slate-900 flex items-center justify-between text-xs text-slate-500"
-        >
-          <div className="flex items-center gap-1.5">
-            <Info className="w-3.5 h-3.5 text-slate-400" />
-            <span>Clicking links opens in new tab</span>
+          {/* Card footer details & Share trigger */}
+          <div className="w-full mt-6 pt-4 border-t border-white/5 flex items-center justify-between text-xs text-slate-400">
+            <div className="flex items-center gap-1.5 text-slate-400">
+              <Info className="w-3.5 h-3.5 text-slate-400" />
+              <span>Opens in new tab</span>
+            </div>
+
+            <button
+              type="button"
+              onClick={handleShare}
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-800/80 hover:bg-slate-700/80 text-slate-300 hover:text-white font-medium border border-white/10 transition-colors"
+            >
+              <Share2 className="w-3.5 h-3.5 text-[#fb923c]" />
+              <span>Share Portal</span>
+            </button>
           </div>
-
-          <button
-            type="button"
-            onClick={handleShare}
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-slate-300 font-medium border border-slate-800 transition-colors"
-          >
-            <Share2 className="w-3.5 h-3.5 text-emerald-400" />
-            <span>Share Portal</span>
-          </button>
         </motion.div>
       </main>
 
-      {/* Footer */}
-      <footer className="w-full max-w-md mx-auto text-center text-xs text-slate-500 py-4 border-t border-slate-900/60 mt-auto">
-        <p>© {new Date().getFullYear()} Chix9ja. All official community rights reserved.</p>
+      {/* Footer from Sleek Interface Theme */}
+      <footer className="w-full max-w-[540px] mx-auto text-center text-xs text-[#475569] tracking-wider py-5 border-t border-slate-800/40 mt-auto relative z-10 uppercase font-medium">
+        &copy; {new Date().getFullYear()} CHIX9JA NETWORK &bull; ALL RIGHTS RESERVED
       </footer>
 
-      {/* Toast Notification */}
+      {/* Copy Toast Alert */}
       <AnimatePresence>
         {copiedLink && (
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 10 }}
-            className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 bg-slate-900 text-emerald-400 border border-emerald-500/30 px-4 py-2.5 rounded-xl shadow-2xl flex items-center gap-2 text-xs font-semibold"
+            className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 bg-slate-900 text-[#fb923c] border border-[#fb923c]/30 px-4 py-2.5 rounded-xl shadow-2xl flex items-center gap-2 text-xs font-semibold"
           >
             <Check className="w-4 h-4 text-emerald-400" />
             <span>{copiedLink} copied to clipboard!</span>
@@ -275,14 +256,14 @@ export default function App() {
         )}
       </AnimatePresence>
 
-      {/* QR Code Modal */}
+      {/* QR Code Inspection Modal */}
       <AnimatePresence>
         {showQrModal && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4"
+            className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4"
             onClick={() => setShowQrModal(null)}
           >
             <motion.div
@@ -290,17 +271,18 @@ export default function App() {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
               onClick={(e) => e.stopPropagation()}
-              className="bg-slate-900 border border-slate-800 p-6 rounded-3xl max-w-xs w-full text-center relative shadow-2xl"
+              className="bg-[#1e293b] border border-white/10 p-6 rounded-3xl max-w-xs w-full text-center relative shadow-2xl"
             >
               <button
                 onClick={() => setShowQrModal(null)}
                 className="absolute top-4 right-4 text-slate-400 hover:text-white p-1 rounded-lg hover:bg-slate-800"
+                aria-label="Close modal"
               >
                 <X className="w-5 h-5" />
               </button>
 
               <h3 className="text-lg font-bold text-white mb-1">Scan QR Code</h3>
-              <p className="text-xs text-slate-400 mb-4 truncate px-2">
+              <p className="text-xs text-slate-400 mb-4 truncate px-2 font-mono">
                 {showQrModal}
               </p>
 
@@ -309,7 +291,7 @@ export default function App() {
                   src={`https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=${encodeURIComponent(
                     showQrModal
                   )}`}
-                  alt="Link QR Code"
+                  alt="QR Code"
                   className="w-44 h-44 mx-auto block"
                 />
               </div>
@@ -319,9 +301,9 @@ export default function App() {
                   href={showQrModal}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full py-2.5 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs rounded-xl transition-colors flex items-center justify-center gap-1.5"
+                  className="w-full py-2.5 bg-[#fb923c] hover:bg-[#f97316] text-white font-bold text-xs rounded-xl transition-colors flex items-center justify-center gap-1.5 shadow-md shadow-orange-500/20"
                 >
-                  <span>Open Link</span>
+                  <span>Open Destination</span>
                   <ExternalLink className="w-3.5 h-3.5" />
                 </a>
               </div>
