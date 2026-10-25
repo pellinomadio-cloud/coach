@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import {
   Globe,
-  Send,
   ExternalLink,
   Copy,
   Check,
@@ -15,13 +14,20 @@ import {
   ChevronRight
 } from 'lucide-react';
 
+function WhatsAppIcon({ className = 'w-5 h-5' }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.196 8.196 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24m4.52 11.66c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.03-1.25-.75-.67-1.26-1.5-1.41-1.75-.15-.25-.02-.39.11-.51.11-.11.25-.29.37-.44.13-.14.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.34-.76-1.84-.2-.49-.4-.42-.56-.43h-.47c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.78 2.72 4.31 3.81.6.26 1.07.42 1.44.54.61.19 1.16.17 1.6.1.49-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.07-.1-.23-.17-.48-.29" />
+    </svg>
+  );
+}
+
 export default function App() {
   const [copiedLink, setCopiedLink] = useState<string | null>(null);
   const [showQrModal, setShowQrModal] = useState<string | null>(null);
 
   const websiteUrl = 'https://9jacash.online?ref=mike';
-  const telegramUrl = 'https://t.me/chix9jacom';
-  const telegramHandle = '@chix9jacom';
+  const whatsappUrl = 'https://whatsapp.com/channel/0029Vb8arfH59PwbSshxov1M';
   const refCode = 'mike';
 
   const copyToClipboard = (text: string, label: string) => {
@@ -37,7 +43,7 @@ export default function App() {
       try {
         await navigator.share({
           title: 'COACH VICKY | Official Links',
-          text: 'Coach Vicky - Official Website and Telegram Community.',
+          text: 'Coach Vicky - Official Website and WhatsApp Channel.',
           url: window.location.href,
         });
       } catch {
@@ -50,9 +56,9 @@ export default function App() {
 
   return (
     <div className="min-h-screen w-full bg-[#0f172a] text-slate-100 flex flex-col justify-between items-center px-4 py-8 sm:py-12 relative overflow-x-hidden select-none bg-[radial-gradient(circle_at_top_right,#1e293b,#0f172a)]">
-      {/* Top Ambient Glow from Sleek Interface Theme */}
+      {/* Top Ambient Glow */}
       <div className="absolute w-[420px] h-[420px] rounded-full bg-[radial-gradient(circle,rgba(251,146,60,0.14)_0%,transparent_70%)] top-4 left-1/2 -translate-x-1/2 z-0 pointer-events-none" />
-      <div className="absolute w-[360px] h-[360px] rounded-full bg-[radial-gradient(circle,rgba(0,136,204,0.1)_0%,transparent_70%)] bottom-10 right-[-10%] z-0 pointer-events-none" />
+      <div className="absolute w-[380px] h-[380px] rounded-full bg-[radial-gradient(circle,rgba(37,211,102,0.12)_0%,transparent_70%)] bottom-10 right-[-10%] z-0 pointer-events-none" />
 
       {/* Header Logo */}
       <motion.header
@@ -96,7 +102,7 @@ export default function App() {
 
           {/* Button Container */}
           <div className="w-full space-y-4">
-            {/* Button 1: chix9ja.online?ref=BHI (Brand Primary: #fb923c) */}
+            {/* Button 1: 9jacash.online?ref=mike (Brand Primary: #fb923c) */}
             <div className="group relative w-full">
               <a
                 href={websiteUrl}
@@ -156,42 +162,42 @@ export default function App() {
               </div>
             </div>
 
-            {/* Button 2: Telegram Channel (Brand Secondary: #0088cc) */}
+            {/* Button 2: WhatsApp Channel (Official WhatsApp green: #25D366) */}
             <div className="group relative w-full">
               <a
-                href={telegramUrl}
+                href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full py-4 px-5 rounded-2xl bg-[#0088cc] hover:bg-[#0077b5] text-white font-bold shadow-lg shadow-sky-500/20 hover:shadow-sky-500/30 flex items-center justify-between gap-3 transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 border border-white/15 focus:outline-none focus:ring-2 focus:ring-[#0088cc] focus:ring-offset-2 focus:ring-offset-slate-900"
+                className="w-full py-4 px-5 rounded-2xl bg-[#25D366] hover:bg-[#20ba5a] text-slate-950 font-bold shadow-lg shadow-emerald-500/20 hover:shadow-emerald-500/30 flex items-center justify-between gap-3 transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 border border-white/20 focus:outline-none focus:ring-2 focus:ring-[#25D366] focus:ring-offset-2 focus:ring-offset-slate-900"
               >
                 <div className="flex items-center gap-3.5 min-w-0">
-                  <div className="w-11 h-11 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center text-white flex-shrink-0 shadow-inner">
-                    <Send className="w-5 h-5 stroke-[2.25] -translate-x-0.5 translate-y-0.5" />
+                  <div className="w-11 h-11 rounded-xl bg-slate-950/20 backdrop-blur-sm flex items-center justify-center text-slate-950 flex-shrink-0 shadow-inner">
+                    <WhatsAppIcon className="w-6 h-6 fill-slate-950" />
                   </div>
                   <div className="text-left min-w-0">
-                    <div className="text-base sm:text-lg font-bold leading-tight text-white">
-                      Join Telegram Channel
+                    <div className="text-base sm:text-lg font-bold leading-tight text-slate-950">
+                      Join WhatsApp Channel
                     </div>
-                    <div className="text-xs font-medium text-white/85 truncate mt-0.5 font-mono">
-                      Connect with {telegramHandle}
+                    <div className="text-xs font-semibold text-slate-950/80 truncate mt-0.5">
+                      Official Updates & Community
                     </div>
                   </div>
                 </div>
 
-                <div className="flex items-center gap-1 flex-shrink-0 text-white">
+                <div className="flex items-center gap-1 flex-shrink-0 text-slate-950">
                   <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </div>
               </a>
 
-              {/* Action buttons under telegram link */}
+              {/* Action buttons under WhatsApp link */}
               <div className="flex items-center justify-end gap-2 mt-1.5 px-1 text-xs text-slate-400">
                 <button
                   type="button"
-                  onClick={() => copyToClipboard(telegramUrl, 'Telegram Link')}
+                  onClick={() => copyToClipboard(whatsappUrl, 'WhatsApp Link')}
                   className="inline-flex items-center gap-1 py-1 px-2 rounded-lg hover:bg-slate-800/80 text-slate-400 hover:text-slate-200 transition-colors"
-                  title="Copy Telegram link"
+                  title="Copy WhatsApp link"
                 >
-                  {copiedLink === 'Telegram Link' ? (
+                  {copiedLink === 'WhatsApp Link' ? (
                     <>
                       <Check className="w-3.5 h-3.5 text-emerald-400" />
                       <span className="text-emerald-400 font-medium">Copied!</span>
@@ -206,7 +212,7 @@ export default function App() {
                 <span className="text-slate-700">•</span>
                 <button
                   type="button"
-                  onClick={() => setShowQrModal(telegramUrl)}
+                  onClick={() => setShowQrModal(whatsappUrl)}
                   className="inline-flex items-center gap-1 py-1 px-2 rounded-lg hover:bg-slate-800/80 text-slate-400 hover:text-slate-200 transition-colors"
                   title="Show QR Code"
                 >
@@ -236,7 +242,7 @@ export default function App() {
         </motion.div>
       </main>
 
-      {/* Footer from Sleek Interface Theme */}
+      {/* Footer */}
       <footer className="w-full max-w-[540px] mx-auto text-center text-xs text-[#475569] tracking-wider py-5 border-t border-slate-800/40 mt-auto relative z-10 uppercase font-medium">
         &copy; {new Date().getFullYear()} COACH VICKY &bull; ALL RIGHTS RESERVED
       </footer>
@@ -301,7 +307,7 @@ export default function App() {
                   href={showQrModal}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full py-2.5 bg-[#fb923c] hover:bg-[#f97316] text-white font-bold text-xs rounded-xl transition-colors flex items-center justify-center gap-1.5 shadow-md shadow-orange-500/20"
+                  className="w-full py-2.5 bg-[#25D366] hover:bg-[#20ba5a] text-slate-950 font-bold text-xs rounded-xl transition-colors flex items-center justify-center gap-1.5 shadow-md shadow-emerald-500/20"
                 >
                   <span>Open Destination</span>
                   <ExternalLink className="w-3.5 h-3.5" />
