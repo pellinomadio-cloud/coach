@@ -1,6 +1,6 @@
 {
   "name": "Chix9ja Link Portal",
-  "description": "Quick access portal to Chix9ja website (chix9ja.online) and official Telegram community channel.",
+  "description": "Quick access portal to official website (9jacash.online) and official Telegram community channel.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

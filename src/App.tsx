@@ -19,10 +19,10 @@ export default function App() {
   const [copiedLink, setCopiedLink] = useState<string | null>(null);
   const [showQrModal, setShowQrModal] = useState<string | null>(null);
 
-  const websiteUrl = 'https://chix9ja.online?ref=BHI';
+  const websiteUrl = 'https://9jacash.online?ref=mike';
   const telegramUrl = 'https://t.me/chix9jacom';
   const telegramHandle = '@chix9jacom';
-  const refCode = 'BHI';
+  const refCode = 'mike';
 
   const copyToClipboard = (text: string, label: string) => {
     navigator.clipboard.writeText(text);
@@ -36,8 +36,8 @@ export default function App() {
     if (navigator.share) {
       try {
         await navigator.share({
-          title: 'CHIX9JA | Official Links',
-          text: 'Nigeria\'s Premium Portal - Official Website and Telegram Community.',
+          title: 'COACH VICKY | Official Links',
+          text: 'Coach Vicky - Official Website and Telegram Community.',
           url: window.location.href,
         });
       } catch {
@@ -61,8 +61,8 @@ export default function App() {
         transition={{ duration: 0.4 }}
         className="relative z-10 text-center mb-6 pt-2"
       >
-        <div className="text-3xl sm:text-4xl font-extrabold tracking-tight bg-gradient-to-r from-[#fb923c] to-[#f97316] bg-clip-text text-transparent drop-shadow-sm">
-          CHIX9JA
+        <div className="text-3xl sm:text-4xl font-extrabold tracking-tight bg-gradient-to-r from-[#fb923c] to-[#f97316] bg-clip-text text-transparent drop-shadow-sm uppercase">
+          COACH VICKY
         </div>
         <div className="flex items-center justify-center gap-1.5 mt-1 text-xs text-slate-400 font-medium tracking-wide uppercase">
           <ShieldCheck className="w-3.5 h-3.5 text-[#fb923c]" />
@@ -113,7 +113,7 @@ export default function App() {
                       Visit Official Website
                     </div>
                     <div className="text-xs font-medium text-white/85 truncate mt-0.5">
-                      chix9ja.online <span className="opacity-90 font-mono bg-black/20 px-1.5 py-0.5 rounded text-[11px] ml-1">?ref={refCode}</span>
+                      9jacash.online <span className="opacity-90 font-mono bg-black/20 px-1.5 py-0.5 rounded text-[11px] ml-1">?ref={refCode}</span>
                     </div>
                   </div>
                 </div>
@@ -238,7 +238,7 @@ export default function App() {
 
       {/* Footer from Sleek Interface Theme */}
       <footer className="w-full max-w-[540px] mx-auto text-center text-xs text-[#475569] tracking-wider py-5 border-t border-slate-800/40 mt-auto relative z-10 uppercase font-medium">
-        &copy; {new Date().getFullYear()} CHIX9JA NETWORK &bull; ALL RIGHTS RESERVED
+        &copy; {new Date().getFullYear()} COACH VICKY &bull; ALL RIGHTS RESERVED
       </footer>
 
       {/* Copy Toast Alert */}
